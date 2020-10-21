@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Calculadora</string>
+    <string name="edt_hint_numero1">Numero1</string>
+    <string name="edt_hint_numero2">Numero2</string>
+    <string name="btn_resto">Button</string>
+    <string name="btn_mas">Button</string>
+    <string name="btn_menos">Button</string>
+    <string name="btn_multiplicar">Button</string>
+    <string name="btn_dividir">Button</string>
+    <string name="text_resultado">TextView</string>
+    <string name="txt_resultado">0</string>
+</resources>
