@@ -21,6 +21,57 @@ public class MainActivity extends AppCompatActivity {
         txt_resultado = findViewById(R.id.texto_resultado);
     }
 
+    public void calcular(View v){
+        double numero1 = 0;
+        try {
+            String textoNumero1 = edt_numero1.getText().toString();
+            numero1 = Double.valueOf(textoNumero1);
+        }
+        catch (Exception e) {
+            edt_numero1.setError("numero1 incorrecto");
+            return;
+        }
+        //---------------------------------------------------------
+        double numero2 = 0;
+        try {
+            String textoNumero2 = edt_numero2.getText().toString();
+            numero2 = Double.valueOf(textoNumero2);
+        }
+        catch (Exception e) {
+            edt_numero2.setError("numero2 incorrecto");
+            return;
+        }
+        double resultado = 0.0;
+        switch (v.getId())
+        {
+            case R.id.btn_mas:
+                resultado = numero1 + numero2;
+                break;
+            case R.id.btn_menos:
+                resultado = numero1 - numero2;
+                break;
+            case R.id.btn_multiplicar:
+                resultado = numero1 * numero2;
+                break;
+            case R.id.btn_dividir:
+                if(numero2 == 0) {
+                    edt_numero2.setError("numero2 no puede ser cero");
+                    return;
+                }
+                resultado = numero1 / numero2;
+                break;
+            case R.id.btn_resto:
+                resultado = numero1 % numero2;
+                break;
+            default:
+                break;
+        }
+        //---------------------------------------------------------
+        double resultadoRedondeado = Math.round(resultado * 100.0)/ 100.0;
+        //---------------------------------------------------------------
+        txt_resultado.setText(String.valueOf(resultadoRedondeado));
+    }
+/*
     public void dividir(View view) {
         double numero1=0;
         try {
@@ -158,5 +209,5 @@ public class MainActivity extends AppCompatActivity {
 
             double resultadoRedondeado = Math.round(resultado * 100.0)/100.0;
             txt_resultado.setText(String.valueOf(resultadoRedondeado));
-    }
+    }*/
 }
